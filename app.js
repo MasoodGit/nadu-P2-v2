@@ -26,17 +26,20 @@ function runTests()
   log(getRelationship());
 }
 
+var thisandthatAreNaNinputsMessage = "Can\'t compare relationships because NaN and NaN are not numbers";
+var thisOrthatIsNaNMessage = "Can\'t compare relationships because NaN is not a number";
+
 function runTests_2(){
   document.getElementById("results").innerHTML = "";
-  assert((getRelationship('x','y') === "Can\'t compare relationships because NaN and NaN are not numbers"),"getRelationship('x','y') : this and that are NaN");
-  assert((getRelationship('x',5) === "Can\'t compare relationships because NaN is not a number"),"getRelationship('x',5) : this is NaN input");
-  assert((getRelationship(15,'asdf') === "Can\'t compare relationships because NaN is not a number"),"getRelationship(15,'asdf')  : that is NaN input");
-  assert((getRelationship(35) === "Can\'t compare relationships because NaN is not a number"),"getRelationship(35) : that is Nan input");
+  assert((getRelationship('x','y') === thisandthatAreNaNinputsMessage),"getRelationship('x','y') : this and that are NaN");
+  assert((getRelationship('x',5) === thisOrthatIsNaNMessage),"getRelationship('x',5) : this is NaN input");
+  assert((getRelationship(15,'asdf') === thisOrthatIsNaNMessage),"getRelationship(15,'asdf')  : that is NaN input");
+  assert((getRelationship(35) === thisOrthatIsNaNMessage),"getRelationship(35) : that is Nan input");
   assert((getRelationship(3,5) === "<"),"getRelationship(3,5) : this < that");
   assert((getRelationship(12,5) === ">"),"getRelationship(12,5) : this > that");
   assert((getRelationship(15,15) ==="=="),"getRelationship(15,15) : this === that");
   assert((getRelationship(20,5) === ">"), "getRelationship(20,5) : this > that");
-  assert((getRelationship() === "Can\'t compare relationships because NaN and NaN are not numbers"),"getRelationship() : this and that are Nan");
+  assert((getRelationship() === thisandthatAreNaNinputsMessage),"getRelationship() : this and that are Nan");
 }
 
 
