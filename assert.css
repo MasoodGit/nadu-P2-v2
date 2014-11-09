@@ -1,0 +1,14 @@
+.pass {
+  color: green;
+  padding:4px;
+}
+
+.fail {
+  color : red;
+  padding:4px;
+}
+ul {
+  background-color: yellow;
+  width: 200px;
+  border:1px solid black;
+}
