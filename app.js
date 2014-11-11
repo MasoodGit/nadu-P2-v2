@@ -129,5 +129,3 @@ function alphabetizer(names)  {
   });
   return newArray.sort();
 }
-
-
