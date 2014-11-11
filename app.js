@@ -1,3 +1,16 @@
+var astronautNames = [
+"Neil Armstrong",
+"Buzz Aldrin",
+"Pete Conrad",
+"Alan Bean",
+"Alan Shepard",
+"Edgar Mitchell",
+"David Scott",
+"James Irwin",
+"John W Young",
+"Charles Duke",
+"Eugene Cernan",
+"Harrison Schmitt"];
 
 function runFunctions(str){
   if(str !== undefined)
@@ -37,9 +50,13 @@ function runTests_2(){
   assert((getRelationship(35) === thisOrthatIsNaNMessage),"getRelationship(35) : that is Nan input");
   assert((getRelationship(3,5) === "<"),"getRelationship(3,5) : this < that");
   assert((getRelationship(12,5) === ">"),"getRelationship(12,5) : this > that");
-  assert((getRelationship(15,15) ==="=="),"getRelationship(15,15) : this === that");
+  assert((getRelationship(15,15) ==="="),"getRelationship(15,15) : this === that");
   assert((getRelationship(20,5) === ">"), "getRelationship(20,5) : this > that");
+  assert((getRelationship('20','5') === ">"), "getRelationship('20','5') : this > that");
   assert((getRelationship() === thisandthatAreNaNinputsMessage),"getRelationship() : this and that are Nan");
+  assert(getRelationship(true,false),thisandthatAreNaNinputsMessage);
+  assert(getRelationship(" ","  "),thisandthatAreNaNinputsMessage);
+  console.log(alphabetizer(astronautNames));
 }
 
 
@@ -75,7 +92,10 @@ function getRelationship(x,y){
   }
 
   var result;
-  
+
+  x = parseInt(x,10);
+  y = parseInt(y,10);
+
   if(x < y )
   {
      result = '<';
@@ -84,14 +104,30 @@ function getRelationship(x,y){
   {
     result = '>';
   }
-  else if(x === y ){
-    result = '==';
+  else if(x == y ){
+    result = '=';
   }
   
   return result;
 }
 
-function isNumeric(input){
-  return (isNaN(input) ? false : true);  
+function isNumeric(n){
+  return !isNaN(parseFloat(n)) && isFinite(n);
 }
+
+
+function alphabetizer(names)  {
+  var newArray = names.map(function(name){
+    var aplhaName = name.split(" ");
+    if(aplhaName.length === 2)  {
+      return aplhaName[1] + ", " + aplhaName[0];
+    }
+    else if(aplhaName.length === 3)
+    {
+      return aplhaName[2] + ", " + aplhaName[0] + " " + aplhaName[1];
+    }
+  });
+  return newArray.sort();
+}
+
 
