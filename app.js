@@ -72,47 +72,52 @@ function log(message){
 }
 
 
-function getRelationship(x,y){
-  var firstInputValidationResult;
-  var secondInputValidationResult;
-  firstInputValidationResult = isNumeric(x);
-  secondInputValidationResult = isNumeric(y);
+function getRelationship(x,y)  {
+
+  var firstInput = filterInt(x);
+  var secondInput = filterInt(y);
   
-  if(!firstInputValidationResult && !secondInputValidationResult)
-  {
+  if(isNaN(firstInput) && isNaN(secondInput))  {
     return ("Can\'t compare relationships because NaN and NaN are not numbers");
   }
-  else if(!firstInputValidationResult)
-  {
+  else if(isNaN(firstInput))  {
     return ("Can\'t compare relationships because NaN is not a number");
   }
-  else if(!secondInputValidationResult)
-  {
+  else if(isNaN(secondInput))  {
     return ("Can\'t compare relationships because NaN is not a number");
   }
 
   var result;
 
-  x = parseInt(x,10);
-  y = parseInt(y,10);
-
-  if(x < y )
-  {
+  if(firstInput < secondInput)  {
      result = '<';
   }
-  else if(x > y)
-  {
+  else if(firstInput > secondInput)  {
     result = '>';
   }
-  else if(x == y ){
+  else if(firstInput == secondInput)  {
     result = '=';
   }
-  
   return result;
 }
 
+
 function isNumeric(n){
   return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+/*
+* From : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
+*
+*/
+function filterInt(value)  {
+  if(/^(\-|\+)?([0-9]+|Infinity)$/.test(value))  {
+    return Number(value);
+  }
+  else  {
+    return NaN;
+  }
+  
 }
 
 
