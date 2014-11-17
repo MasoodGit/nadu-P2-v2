@@ -1,3 +1,57 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333333;
+  background-color: #ffffff;
+}
+
+.container {
+  width: 96%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.col-4,.col-3 {
+  float : left;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.col-4 {
+  width: 33%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.show-grid [class^=col-] {
+  border: 1px solid rgba(86,61,124,.2);
+}
+
 .pass {
   color: green;
   padding:4px;
@@ -7,8 +61,22 @@
   color : red;
   padding:4px;
 }
+
 ul {
   background-color: yellow;
   width: 400px;
   border:1px solid black;
+}
+
+.container:before,
+.container:after,
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+
+.container:after,
+.row:after {
+  clear: both;
 }

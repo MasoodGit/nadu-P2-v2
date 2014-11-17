@@ -2,20 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Project V2.0</title>
+  <title>Project-2 V2.0</title>
   <link rel="stylesheet" type="text/css" href="./assert.css">
-  <script src="./assert.js"></script>
   <script src="./app.js"></script>
   <script src="./pageSpeed.js"></script>
 </head>
 <body>
-  <button onclick="runTests_2();">Run Tests</button>
-  <button onclick="runPageSpeedQuiz();">Run PageSpeed quiz </button>
-
-  <div id="console">
-   <ul id="results">
-     
-   </ul>
-  </div>
+  <div class="container">
+    <div class="row show-grid">
+      <div class="col-4">
+        <h1>Relationships</h1>
+        <button  onclick="runQuizOneTests();">Run Test</button>
+        <p>Results</p>
+        <div id="quizOneResults"></div>
+      </div>
+      <div class="col-4">
+        <h1>Astronaut Arrays</h1>
+        <button onclick="runQuizTwoTests();">Run Tests</button>
+        <p>Results</p>
+        <div id="quizTwoResults"></div>
+      </div>
+      <div class="col-4">
+        <h1>PageSpeed Insights</h1>
+        <button onclick="runPageSpeedQuiz();">Run Test</button>
+        <p>Results</p>
+        <div id="quizThreeResults"></div>
+      </div>
+    </div>
+  </div>  
 </body>
 </html>
